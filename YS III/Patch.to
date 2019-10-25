@@ -1,0 +1,16 @@
+# Skip CRC check, change conditional jump to unconditional
+# beq -> bra
+@4BE 67 -> 60
+
+# capture command processing
+# d6 and d7 are sent to addresses A10FFE/F to play commands so we intercept them
+# d6 write is changed to a call to our patch code, and d7 write is NOPed, both will be performed
+# in the patch code if neccessary
+
+# move.b  d6, (0xA01FFE).l -> jsr $FFE00
+@5BC 13C600A01FFE -> 4EB9000FFE00
+# move.b  d7, (0xA01FFF).l -> nop nop nop
+@5C2 13C700A01FFF -> 4E714E714E71
+
+#Inject the additional code at the end of the rom
+@FFE00 Inject patch.bin

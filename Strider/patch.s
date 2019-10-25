@@ -20,12 +20,8 @@
 	nop
 
 PlayCode:
-#magical sound shower
 	subi.b #0x81, %d0
 	bcs  continue
-
-	#check more sound codes here
-	#beq dontskip
 
 	addi.b #0x1, %d0
 
@@ -48,11 +44,6 @@ continue:
 
 	rts
 
-dontskip:
-	jmp 0xB0798
-
-	rts
-	
 
 #unused
 Pause:

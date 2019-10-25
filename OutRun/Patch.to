@@ -1,0 +1,31 @@
+#Patch available regions to add Europe
+@1F2 20 -> 45
+
+# NOP CRC check
+@3A8 6602 -> 4E71
+
+# patch has 4 entry points
+# FF000 -> play music
+# FF004 -> stop music
+# FF008 -> pause music
+# FF00C -> resume music
+
+# capture pause request
+# move.b  #1,($A01C10).l -> jsr $FF004  nop
+@193A 13FC000100A01C10 -> 4EB9000FF0044E71
+
+# capture resume request
+# move.b  #$80,($A01C10).l -> jsr $FF008  nop
+@1982 13FC008000A01C10 -> 4EB9000FF0084E71
+
+# capture sound code request
+# move.b  d0,($A01C0A).l -> jsr $FF000
+# sound code is at register d0
+@228C 13C000A01C0A -> 4EB9000FF000
+
+# capture z80 reset and stop all music
+# move.w  #0,($A11200).l -> jsr $FF00C  nop
+@6668 33FC000000A11200 -> 4EB9000FF00C4E71
+
+#Inject the additional code at the end of the rom
+@FF000 Inject patch.bin

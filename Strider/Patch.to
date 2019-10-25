@@ -1,0 +1,13 @@
+# Skip CRC check
+@348 6600007C -> 4E714E71
+
+# capture command enqueue request
+# subi.b  #$81,d0  bcs   B05FC -> jmp $FF000 nop
+@B0790 040000816500FE66 -> 4EF9000FF0004E71
+
+
+# move.b  #$2B,d0 move.b  #$80,d1 -> jsr $FF00C nop
+@B08CE 103C002B123C0080 -> 4EB9000FF00C4E71
+
+#Inject the additional code at the end of the rom
+@FF000 Inject patch.bin

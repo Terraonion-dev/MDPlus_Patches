@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.539
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TOPatcher", "TOPatcher.csproj", "{14E5F975-B0A6-49DF-BD84-00012DF8BC59}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{14E5F975-B0A6-49DF-BD84-00012DF8BC59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14E5F975-B0A6-49DF-BD84-00012DF8BC59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14E5F975-B0A6-49DF-BD84-00012DF8BC59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14E5F975-B0A6-49DF-BD84-00012DF8BC59}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CC704E2A-6DA5-43AF-800D-7CEC4477F41B}
+	EndGlobalSection
+EndGlobal
