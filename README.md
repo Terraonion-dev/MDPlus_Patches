@@ -5,7 +5,7 @@ This repository includes the source code for some MD+ patches used to add CDDA a
 
 It also includes our own simple patching tool that allows creating human readable patches for the ROMs.
 
-To build the patches, you'll need [SGDK](https://github.com/Stephane-D/SGDK) and update the mk.bat files in each directory to point to your SGDK base directory. Only *as* and *objcopy* are used. A prebuilt executable of the patching tool is also included.
+To build the patches, you'll need [SGDK](https://github.com/Stephane-D/SGDK) and update the mk.bat files in each directory to point to your SGDK base directory. Only *as* and *objcopy* are used. A prebuilt executable of the patching tool is also included. Also, no roms are included so you need to place the proper ROM (see each mk.bat file) on each game directory.
 
 # TOPatcher usage
 Along with the patches, a patcher tool is included. We used it to create the original patched and are sharing it here for everyone use.
