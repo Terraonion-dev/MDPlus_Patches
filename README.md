@@ -20,8 +20,8 @@ The patch file is a text file, generally named *patch.to* that includes the comm
 
 The only lines that are processed by the patcher tool are the ones starting with @. All values are specified in hexadecimal. There are currently only 2 recognized commands:
 
-- **@***address* *originalbytes* **->** *patchbytes* . Patch a string of bytes starting at the specified address. TOPatcher will check that the ROM bytes are either the original or the patched ones. If they aren't it will fail and exit without patching anything. The length of the original bytes must match the length of the patch bytes.
-- **@***address* **Inject** *filename* . Inject the contents of the specified file into the rom, starting at the specified address.
+- @*address* *originalbytes* **->** *patchbytes* . Patch a string of bytes starting at the specified address. TOPatcher will check that the ROM bytes are either the original or the patched ones. If they aren't it will fail and exit without patching anything. The length of the original bytes must match the length of the patch bytes.
+- @*address* **Inject** *filename* . Inject the contents of the specified file into the rom, starting at the specified address.
 
 Example of strider patch
 
