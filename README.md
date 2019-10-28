@@ -13,7 +13,13 @@ It's a very simple patching tool, but it allows human readable patches to be cre
 
 ### Command line
 
-    ToPatcher patchfile originalfile patchedfile
+    ToPatcher -patch patchfile originalfile patchedfile
+Applies the patches contained in *patchfile* to the file *originalfile* creating *patchedfile*
+
+
+    ToPatcher -createIPS patchfile ipsfile
+Creates an IPS file named *ipsfile* with the patches contained in *patchfile*
+
 
 ### Patchfile structure
 The patch file is a text file, generally named *patch.to* that includes the commands to patch or inject files at specific addresses.
