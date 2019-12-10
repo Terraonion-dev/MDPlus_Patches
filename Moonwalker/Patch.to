@@ -1,0 +1,17 @@
+# patch has 4 entry points
+# 6FF00 -> play music
+# 6FF04 -> stop music
+# 6FF08 -> pause music
+# 6FF0C -> resume music
+
+# capture sound code request
+# lea     ($FFD30A).l,a1 -> jsr $6FF00
+# sound code is at register d0
+@1514E 43F900FFD30A -> 4EB90006FF00
+
+# capture z80 reset and stop all music
+# lea ($FFFFDE80).w,a6 moveq   #0,d7 -> jsr $6FF0C  nop
+@14FA0 4DF8DE807E00 -> 4EB90006FF0C
+
+#Inject the additional code at the end of the rom
+@6FF00 Inject patch.bin
