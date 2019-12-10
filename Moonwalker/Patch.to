@@ -3,6 +3,10 @@
 # 6FF04 -> stop music
 # 6FF08 -> pause music
 # 6FF0C -> resume music
+# 6FF10 -> interrupt
+
+#trap interrupt
+@626 4EB900060166 -> 4EB90006FF10
 
 # capture sound code request
 # lea     ($FFD30A).l,a1 -> jsr $6FF00

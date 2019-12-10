@@ -14,8 +14,7 @@
 #entry at 6FF0C
 	bra Reset
 #for expansion
-	nop
-	nop
+	bra Interrupt
 	nop
 	nop
 
@@ -35,6 +34,9 @@ PlayCode:
 
 	cmp.b #0x86,%d0
 	bcc skip
+
+	cmp.b #0x00,(0xFFFFE0)
+	bne skip2
 	
 	and.w #0x000F,%d0
 
@@ -49,6 +51,7 @@ PlayCode:
 #close command overlay
 	move.w #0x0000,(0x03F7FA)
 
+skip2:
 	move #0xE0,%d0
 
 skip:	
@@ -59,6 +62,8 @@ skip:
 playfromcd:
 
 Pause:
+
+	move.b #0x3F,(0xFFFFE0)
 
 #open command overlay
 	move.w #0xCD54,(0x03F7FA)
@@ -98,4 +103,18 @@ Reset:
 	move.l #0xFFDE80,%a6
 	move #0,%d7
 
+	rts
+
+
+Interrupt:
+
+	move.b (0xFFFFE0),%d0
+	beq nofade
+
+	add.b #-1,%d0
+	move.b %d0,(0xFFFFE0)
+
+nofade:
+
+	jsr 0x60166
 	rts
