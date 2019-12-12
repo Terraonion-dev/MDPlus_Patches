@@ -23,7 +23,7 @@ PlayCode:
 	cmp.b #0xE0,%d0
 	beq Pause
 
-	cmp.b #0x90,%d0
+	cmp.b #0xA0,%d0
 	bcc skip
 
 	move.w #0xCD54,(0x03F7FA)
