@@ -1,0 +1,18 @@
+# NOP CRC check
+@BF0 6724 -> 6024
+
+# patch has 4 entry points
+# 7FF00 -> play code
+# 7FF04 -> pause/resume music
+
+
+#capture pause/resume
+# move.b  #D0,($A01C0B).l -> jsr $7FF04
+@3498 13C000A01C0B -> 4EB90007FF04
+
+# capture command request
+# move.b  #D7,($A01C05).l -> jsr $7FF00
+@3604 13C700A01C05 -> 4EB90007FF00
+
+#Inject the additional code at the end of the rom
+@7FF00 Inject patch.bin
